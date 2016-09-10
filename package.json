@@ -7,9 +7,10 @@
   "license": "MIT",
   "repository": "https://github.com/jontonsoup4/html5-sass-boilerplate",
   "scripts": {
-    "preinstall": "npm -g gulp bower",
+    "preinstall": "npm -g install gulp bower",
     "postinstall": "bower install",
-    "start": "gulp"
+    "start": "gulp",
+    "clean": "rm node_modules bower_components"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.14.0",
