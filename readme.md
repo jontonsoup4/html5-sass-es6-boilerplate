@@ -34,3 +34,7 @@ To install, use:
 To build and serve files, use:
 
     gulp
+
+To deploy to github, use:
+
+    gulp deploy

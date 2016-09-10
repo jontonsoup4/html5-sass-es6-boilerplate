@@ -6,7 +6,7 @@
   "author": "Jonathan Reed <jontonsoup4@gmail.com>",
   "license": "MIT",
   "repository": "https://github.com/jontonsoup4/html5-sass-boilerplate",
-  "scripts" : {
+  "scripts": {
     "preinstall": "npm -g gulp bower",
     "postinstall": "bower install",
     "start": "gulp"
@@ -20,6 +20,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.2",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-htmlmin": "^2.0.0",
     "gulp-imagemin": "^3.0.3",
     "gulp-jshint": "^2.0.1",

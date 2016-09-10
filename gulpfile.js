@@ -10,6 +10,7 @@ var htmlmin = require("gulp-htmlmin");
 var plumber = require("gulp-plumber");
 var reload = browserSync.reload;
 var tap = require("gulp-tap");
+var ghPages = require("gulp-gh-pages");
 
 // Scripts and tests
 var concat = require("gulp-concat");
@@ -240,6 +241,7 @@ gulp.task("lint:scripts", function () {
         .pipe(jshint.reporter("jshint-stylish"));
 });
 
+// Watch all files
 gulp.task("watch", function () {
     gulp.watch(paths.bower.input, ["build:bower"]);
     gulp.watch(paths.fonts.input, ["build:fonts"]);
@@ -248,6 +250,12 @@ gulp.task("watch", function () {
     gulp.watch(paths.static.input, ["build:static"]);
     gulp.watch(paths.styles.input, ["build:styles"]);
     gulp.watch(paths.svgs.input, ["build:svgs"]);
+});
+
+// Deploy to Github
+gulp.task("deploy", function() {
+    return gulp.src("./dist/**/*")
+        .pipe(ghPages());
 });
 
 // Compile files
