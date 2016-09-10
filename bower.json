@@ -1,0 +1,20 @@
+{
+  "name": "html5-sass-es6-boilerplate",
+  "description": "Boilerplate for quick development using HTML5, Sass, and ES6",
+  "main": "src/index.html",
+  "authors": [
+    "Jonathan Reed <jontonsoup4@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jontonsoup4/html5-sass-boilerplate",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "^4.2.0"
+  }
+}
