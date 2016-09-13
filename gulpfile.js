@@ -31,7 +31,7 @@ var svgstore = require("gulp-svgstore");
 // Paths to project folders
 var paths = {
     input: "src/**/*",
-    output: "dist/",
+    output: "dist/**/*",
     bower: {
         input: "bower_components/**/*",
         output: "dist/bower_components/"
@@ -253,9 +253,11 @@ gulp.task("watch", function () {
 });
 
 // Deploy to Github
-gulp.task("deploy", function() {
-    return gulp.src("./dist/**/*")
-        .pipe(ghPages());
+gulp.task("deploy", ["build"], function() {
+    return gulp.src(paths.output)
+        .pipe(ghPages({
+            force: true
+        }));
 });
 
 // Compile files
