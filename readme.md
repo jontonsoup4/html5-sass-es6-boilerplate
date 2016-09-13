@@ -21,6 +21,22 @@ html5-sass-boilerplate
     └──svg
 ```
 
+##Output
+```
+html5-sass-boilerplate
+└───dist
+    ├──index.html
+    ├──img 
+    ├──js
+    |   └──main.js
+    ├──styles
+    |   └──main.scss
+    ├──svg
+    └──vendor
+        └──normalize-css
+            └──normalize.css
+```
+
 # Requirements
 
     Node

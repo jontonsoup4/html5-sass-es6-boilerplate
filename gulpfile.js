@@ -34,7 +34,7 @@ var paths = {
     output: "dist/**/*",
     bower: {
         input: "bower_components/**/*",
-        output: "dist/bower_components/"
+        output: "dist/vendor/"
     },
     fonts: {
         input: "src/fonts/**/*",
@@ -255,9 +255,7 @@ gulp.task("watch", function () {
 // Deploy to Github
 gulp.task("deploy", ["build"], function() {
     return gulp.src(paths.output)
-        .pipe(ghPages({
-            force: true
-        }));
+        .pipe(ghPages());
 });
 
 // Compile files
