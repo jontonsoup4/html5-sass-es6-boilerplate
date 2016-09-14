@@ -1,3 +1,71 @@
+$color-primary-0: #1F3155;	// Main Primary color */
+$color-primary-1: #4766A3;
+$color-primary-2: #314A7A;
+$color-primary-3: #101C34;
+$color-primary-4: #060C18;
+
+$color-background: #EEEEEE;
+
+$color-font-0: #444444;
+$color-font-1: #EEEEEE;
+
+$font-family-primary: Helvetica, sans-serif;
+$font-family-header: Futura, Helvetica, sans-serif;
+
+article {
+  margin: 0 15px;
+}
+
+body {
+  background-color: $color-background;
+  color: $color-font-0;
+  line-height: 1.6;
+}
+
+footer {
+  align-items: center;
+  background: $color-primary-0;
+  color: $color-font-1;
+  display: flex;
+  font-family: $font-family-primary;
+  height: 80px;
+  justify-content: center;
+  width: 100%;
+  & a {
+    border-radius: 5px;
+    color: $color-font-1;
+    flex: 0 0 auto;
+    font-family: $font-family-primary;
+    padding: 10px;
+    &:hover {
+      background: $color-primary-1;
+      transition: all .2s;
+    }
+  }
+}
+
+header {
+  align-items: center;
+  background: $color-primary-0;
+  color: $color-font-1;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: $font-family-header;
+  font-size: 24px;
+  height: 80px;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+p {
+  text-indent: 50px;
+}
+
 // Set minimum height of website to viewport height
 .Site {
   display: flex;
@@ -8,10 +76,18 @@
 // Sticky footer
 .Site-content {
   flex: 1 1 auto;
+  margin-top: 85px;
+  overflow-y: scroll;
+  width: 100%;
 }
 
 // Tablets
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+  article {
+    margin: 0 auto;
+    max-width: 650px;
+}
 
 // Desktops
 @media (min-width: 992px) {}
+}
