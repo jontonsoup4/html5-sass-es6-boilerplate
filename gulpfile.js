@@ -49,7 +49,7 @@ var paths = {
         output: "dist/js/"
     },
     static: {
-        input: "src/static/**/*",
+        input: "src/static/**/*.html",
         output: "dist/"
     },
     styles: {
