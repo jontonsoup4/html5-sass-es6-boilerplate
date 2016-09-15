@@ -32,6 +32,10 @@ var svgstore = require("gulp-svgstore");
 var paths = {
     input: "src/**/*",
     output: "dist/**/*",
+    bower: {
+        input: "src/bower_components/**/*",
+        output: "dist/bower_components/"
+    },
     fonts: {
         input: "src/fonts/**/*",
         output: "dist/fonts/"
@@ -59,10 +63,17 @@ var paths = {
 };
 
 // Gulp Tasks
+
+// Move bower components
+gulp.task("build:bower", ["clean:bower"], function () {
+    return gulp.src(paths.bower.input)
+        .pipe(gulp.dest(paths.bower.output))
+        .pipe(reload({stream:true}));
+});
+
 // Process fonts
 gulp.task("build:fonts", ["clean:fonts"], function () {
     return gulp.src(paths.fonts.input)
-        .pipe(plumber())
         .pipe(gulp.dest(paths.fonts.output))
         .pipe(reload({stream:true}));
 });
@@ -154,6 +165,12 @@ gulp.task("clean:dist", function () {
     ]);
 });
 
+gulp.task("clean:bower", function () {
+    del.sync([
+        paths.bower.output
+    ])
+});
+
 gulp.task("clean:fonts", function () {
     del.sync([
         paths.fonts.output
@@ -217,6 +234,7 @@ gulp.task("deploy", ["build"], function () {
 // Compile files
 gulp.task("build", [
     "clean:dist",
+    "build:bower",
     "build:fonts",
     "build:images",
     "build:scripts",
