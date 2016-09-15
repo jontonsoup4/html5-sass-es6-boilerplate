@@ -33,8 +33,8 @@ var paths = {
     input: "src/**/*",
     output: "dist/**/*",
     bower: {
-        input: "bower_components/**/*",
-        output: "dist/vendor/"
+        input: "src/bower_components/**/*",
+        output: "dist/bower_components/"
     },
     fonts: {
         input: "src/fonts/**/*",
@@ -228,7 +228,7 @@ gulp.task("watch", function () {
 });
 
 // Deploy to Github
-gulp.task("deploy", ["build"], function() {
+gulp.task("deploy", ["build"], function () {
     return gulp.src(paths.output)
         .pipe(ghPages());
 });
@@ -242,7 +242,7 @@ gulp.task("build", [
     "build:scripts",
     "build:static",
     "build:styles",
-    "build:svgs",
+    "build:svgs"
 ]);
 
 // Serve

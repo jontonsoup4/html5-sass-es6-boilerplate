@@ -8,7 +8,6 @@
   "repository": "https://github.com/jontonsoup4/html5-sass-boilerplate",
   "scripts": {
     "preinstall": "npm -g install gulp bower",
-    "postinstall": "bower install",
     "start": "gulp",
     "clean": "rimraf node_modules bower_components"
   },

@@ -9,8 +9,8 @@ the boring stuff and gets straight to the fun.
 ```
 html5-sass-boilerplate
 ├──readme.md
-|
 └───src
+    ├──bower_components
     ├──img 
     ├──js
     |   └──main.js
@@ -18,6 +18,7 @@ html5-sass-boilerplate
     |   └──index.html
     ├──styles
     |   └──main.scss
+    |   └──normalize.css
     └──svg
 ```
 
@@ -25,16 +26,15 @@ html5-sass-boilerplate
 ```
 html5-sass-boilerplate
 └───dist
+    ├──bower_components
     ├──index.html
     ├──img 
     ├──js
     |   └──main.js
     ├──styles
     |   └──main.scss
-    ├──svg
-    └──vendor
-        └──normalize-css
-            └──normalize.css
+    |   └──normalize.css
+    └──svg
 ```
 
 # Requirements
