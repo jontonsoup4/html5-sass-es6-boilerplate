@@ -119,7 +119,12 @@ gulp.task("build:scripts", ["clean:scripts", "lint:scripts"], function() {
 gulp.task("build:static", ["clean:static"], function() {
     return gulp.src(paths.static.input)
         .pipe(plumber())
-        .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            minifyCSS: true,
+            minifyJS: true,
+            removeComments: true
+        }))
         .pipe(gulp.dest(paths.static.output))
         .pipe(reload({stream:true}));
 });
