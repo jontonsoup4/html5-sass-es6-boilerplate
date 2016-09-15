@@ -233,7 +233,7 @@ gulp.task("watch", function () {
 // Deploy to Github
 gulp.task("deploy", ["build"], function () {
     return gulp.src(paths.output)
-        .pipe(ghPages());
+        .pipe(ghPages({force: true}));
 });
 
 // Compile files
