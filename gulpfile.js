@@ -64,36 +64,11 @@ var paths = {
 
 // Gulp Tasks
 // Move and minify bower components
-gulp.task("build:bower", [
-    "clean:bower",
-    "build:bower-html",
-    "build:bower-scripts",
-    "build:bower-styles"
-], function () {
-    reload();
-});
-
-gulp.task("build:bower-html", ["clean:bower"], function () {
-    return gulp.src(paths.bower.input + ".html")
+gulp.task("build:bower", ["clean:bower"], function () {
+    return gulp.src(paths.bower.input)
         .pipe(plumber())
-        .pipe(htmlmin({collapseWhitespace: true}))
-        .pipe(gulp.dest(paths.bower.output))
-});
-
-gulp.task("build:bower-scripts", ["clean:bower"], function () {
-    return gulp.src(paths.bower.input + ".js")
-        .pipe(plumber())
-        .pipe(uglify({
-            mangle: {toplevel: true}
-        }))
-        .pipe(gulp.dest(paths.bower.output))
-});
-
-gulp.task("build:bower-styles", ["clean:bower"], function () {
-    return gulp.src(paths.bower.input + ".{scss,sass,css}")
-        .pipe(plumber())
-        .pipe(minify({discardComments: {removeAll: true}}))
-        .pipe(gulp.dest(paths.bower.output))
+        .pipe(gulp.dest(paths.fonts.output))
+        .pipe(reload({stream:true}));
 });
 
 // Process fonts
