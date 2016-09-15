@@ -32,10 +32,6 @@ var svgstore = require("gulp-svgstore");
 var paths = {
     input: "src/**/*",
     output: "dist/**/*",
-    bower: {
-        input: "src/bower_components/**/*",
-        output: "dist/bower_components/"
-    },
     fonts: {
         input: "src/fonts/**/*",
         output: "dist/fonts/"
@@ -204,7 +200,6 @@ gulp.task("lint:scripts", function () {
 
 // Watch all files
 gulp.task("watch", function () {
-    gulp.watch(paths.bower.input, ["build:bower"]);
     gulp.watch(paths.fonts.input, ["build:fonts"]);
     gulp.watch(paths.images.input, ["build:images"]);
     gulp.watch(paths.scripts.input, ["build:scripts"]);
