@@ -92,7 +92,8 @@ gulp.task("build:scripts", ["lint"], function() {
         .pipe(uglify({
             mangle: {toplevel: true}
         }))
-        .pipe(gulp.dest(paths.scripts.output));
+        .pipe(gulp.dest(paths.scripts.output))
+        .pipe(reload({stream:true}));
 });
 
 // Copy and minify static files into output folder
