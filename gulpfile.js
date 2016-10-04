@@ -175,7 +175,7 @@ gulp.task("serve", ["watch"], function () {
 
 // Watch all files
 gulp.task("watch", function () {
-    gulp.watch([paths.input, paths.ignoredFolders], ["copy"])
+    gulp.watch([paths.input] + paths.ignoredFolders, ["copy"])
     gulp.watch(paths.images.input, ["build:images"]);
     gulp.watch(paths.scripts.input, ["build:scripts"]);
     gulp.watch(paths.static.input, ["build:static"]);
