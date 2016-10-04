@@ -1,19 +1,15 @@
-$color-primary-0: #1F3155;	// Main Primary color */
-$color-primary-1: #4766A3;
-$color-primary-2: #314A7A;
-$color-primary-3: #101C34;
-$color-primary-4: #060C18;
-
-$color-background: #EEEEEE;
-
-$color-font-0: #444444;
-$color-font-1: #EEEEEE;
+@import "media-queries";
+@import "colors";
 
 $font-family-primary: Helvetica, sans-serif;
 $font-family-header: Futura, Helvetica, sans-serif;
 
 article {
   margin: 0 15px;
+  @include tablet {
+      margin: 0 auto;
+      max-width: 650px;
+  }
 }
 
 body {
@@ -78,17 +74,5 @@ p {
 .Site-content {
   flex: 1 1 auto;
   margin-top: 85px;
-  overflow-y: scroll;
   width: 100%;
 }
-
-// Tablets
-@media (min-width: 768px) {
-  article {
-    margin: 0 auto;
-    max-width: 650px;
-  }
-}
-
-// Desktops
-@media (min-width: 992px) {}
