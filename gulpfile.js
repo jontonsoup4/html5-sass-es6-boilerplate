@@ -154,7 +154,7 @@ gulp.task("default", [
 
 // Deploy to Github
 gulp.task("deploy", ["build"], function () {
-    return gulp.src(paths.output)
+    return gulp.src(paths.output + "/**/*")
         .pipe(ghPages({force: true}));
 });
 
