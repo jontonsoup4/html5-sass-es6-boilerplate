@@ -87,7 +87,7 @@ gulp.task("build:scripts", ["lint"], function() {
     return gulp.src(paths.scripts.input)
         .pipe(plumber())
         .pipe(babel({
-            presets: ["es2016"]
+            presets: ["es2015"]
         }))
         .pipe(uglify({
             mangle: {toplevel: true}
