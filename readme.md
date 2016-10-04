@@ -1,7 +1,7 @@
 # HTML5-Sass-ES6-Boilerplate
 
-Template for quickly building websites using HTML5, Sass, and ES6. 
-The goal is to serve highly optimized, mobile-first code that skips 
+Template for quickly building websites using HTML5, Sass, and ES6.
+The goal is to serve highly optimized, mobile-first code that skips
 the boring stuff and gets straight to the fun. View template [here](https://jontonsoup4.github.io/html5-sass-es6-boilerplate/)
 
 # Folder Structure
@@ -11,7 +11,7 @@ html5-sass-boilerplate
 ├──readme.md
 └───src
     ├──bower_components
-    ├──img 
+    ├──img
     ├──js
     |   └──main.js
     ├──static
@@ -22,26 +22,22 @@ html5-sass-boilerplate
     └──svg
 ```
 
-##Output
+## Output
 ```
 html5-sass-boilerplate
 └───dist
     ├──bower_components
     ├──index.html
-    ├──img 
+    ├──img
     ├──js
     |   └──main.js
     ├──styles
-    |   └──main.scss
+    |   └──main.css
     |   └──normalize.css
     └──svg
 ```
 
-# Requirements
-
-    Node
-
-To install, use:
+# Install Dependencies
 
     npm install
 
