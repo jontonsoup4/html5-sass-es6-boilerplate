@@ -28,7 +28,13 @@ var svgmin = require("gulp-svgmin");
 var paths = {
     input: "src/**/*",
     output: "dist",
-    folders: "src/[images, scripts, static, styles, svgs]/**/*",
+    ignoredFolders: [
+        "!src/images/**/*",
+        "!src/scripts/**/*",
+        "!src/static/**/*",
+        "!src/styles/**/*",
+        "!src/svgs/**/*"
+    ],
     images: {
         input: "src/img/**/*",
         output: "dist/img/"
@@ -52,6 +58,17 @@ var paths = {
 };
 
 // Gulp Tasks
+// Build all
+gulp.task("build", [
+    "clean",
+    "copy",
+    "build:images",
+    "build:scripts",
+    "build:static",
+    "build:styles",
+    "build:svgs"
+]);
+
 // Copy and optimize image files into output folder
 gulp.task("build:images", function() {
     return gulp.src(paths.images.input)
@@ -124,9 +141,21 @@ gulp.task("clean", function () {
 
 // Copy all other folders
 gulp.task("copy", function () {
-    return gulp.src([paths.input, "!" + paths.folders])
+    return gulp.src([paths.input] + paths.ignoreFolders)
         .pipe(gulp.dest(paths.output))
         .pipe(reload({stream:true}));
+});
+
+// Default
+gulp.task("default", [
+    "build",
+    "serve"
+]);
+
+// Deploy to Github
+gulp.task("deploy", ["build"], function () {
+    return gulp.src(paths.output)
+        .pipe(ghPages({force: true}));
 });
 
 // Lint scripts
@@ -137,33 +166,6 @@ gulp.task("lint", function () {
         .pipe(jshint.reporter("jshint-stylish"));
 });
 
-// Watch all files
-gulp.task("watch", function () {
-    gulp.watch([paths.input, "!" + paths.folders], ["copy"])
-    gulp.watch(paths.images.input, ["build:images"]);
-    gulp.watch(paths.scripts.input, ["build:scripts"]);
-    gulp.watch(paths.static.input, ["build:static"]);
-    gulp.watch(paths.styles.input, ["build:styles"]);
-    gulp.watch(paths.svgs.input, ["build:svgs"]);
-});
-
-// Deploy to Github
-gulp.task("deploy", ["build"], function () {
-    return gulp.src(paths.output)
-        .pipe(ghPages({force: true}));
-});
-
-// Compile files
-gulp.task("build", [
-    "clean",
-    "copy",
-    "build:images",
-    "build:scripts",
-    "build:static",
-    "build:styles",
-    "build:svgs"
-]);
-
 // Serve
 gulp.task("serve", ["watch"], function () {
     browserSync.init({
@@ -171,8 +173,12 @@ gulp.task("serve", ["watch"], function () {
     });
 });
 
-// Default
-gulp.task("default", [
-    "build",
-    "serve"
-]);
+// Watch all files
+gulp.task("watch", function () {
+    gulp.watch([paths.input, paths.ignoredFolders], ["copy"])
+    gulp.watch(paths.images.input, ["build:images"]);
+    gulp.watch(paths.scripts.input, ["build:scripts"]);
+    gulp.watch(paths.static.input, ["build:static"]);
+    gulp.watch(paths.styles.input, ["build:styles"]);
+    gulp.watch(paths.svgs.input, ["build:svgs"]);
+});
