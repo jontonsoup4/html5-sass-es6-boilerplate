@@ -28,13 +28,6 @@ var svgmin = require("gulp-svgmin");
 var paths = {
     input: "src/**/*",
     output: "dist",
-    ignoredFolders: [
-        "!src/images/**/*",
-        "!src/scripts/**/*",
-        "!src/static/**/*",
-        "!src/styles/**/*",
-        "!src/svgs/**/*"
-    ],
     images: {
         input: "src/img/**/*",
         output: "dist/img/"
@@ -142,7 +135,14 @@ gulp.task("clean", function () {
 
 // Copy all other folders
 gulp.task("copy", function () {
-    return gulp.src([paths.input] + paths.ignoreFolders)
+    return gulp.src([
+        paths.input,
+        "!src/img/**/*", "!src/img",
+        "!src/js/**/*", "!src/js",
+        "!src/static/**/*", "!src/static",
+        "!src/styles/**/*", "!src/styles",
+        "!src/svg/**/*", "!src/svg"
+    ])
         .pipe(gulp.dest(paths.output))
         .pipe(reload({stream:true}));
 });
